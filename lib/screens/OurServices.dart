@@ -12,7 +12,7 @@ class _OurServicesState extends State<OurServices> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: DrawerTemplate(),
-      appBar: AppBarTemplate(),
+      appBar: AppBarTemplate("Our Services"),
       body: OurServicesPage(),
     );
   }

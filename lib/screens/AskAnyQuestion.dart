@@ -12,7 +12,7 @@ class _AskAnyQuestionState extends State<AskAnyQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: DrawerTemplate(),
-      appBar: AppBarTemplate(),
+      appBar: AppBarTemplate("Ask a Question"),
       body: AskAnyQuestionPage(),
     );
   }

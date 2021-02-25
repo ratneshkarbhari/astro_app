@@ -12,7 +12,7 @@ class _DailyHoroScopeState extends State<DailyHoroScope> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: DrawerTemplate(),
-      appBar: AppBarTemplate(),
+      appBar: AppBarTemplate("Daily Horoscope"),
       body: DailyHoroScopePage(),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/Constants.dart';
+import 'Home.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -76,6 +77,13 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.blue,
                 child: Text("Login",style: TextStyle(color: Colors.white,fontSize: 16.0)),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+              ),
+              SizedBox(height: 50,),
+              GestureDetector(
+                child: Text("To Home Page"),
+                onTap: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=> Home()));
+                },
               )
             ],
           ),
