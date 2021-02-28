@@ -31,6 +31,10 @@ class HomePage extends StatelessWidget {
     'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
   ];
 
+  List colors = [Colors.red,Colors.green,Colors.blue,Colors.pink,Colors.purple,Colors.deepOrange,Colors.teal,Colors.amber,Colors.cyan,Colors.indigo];
+
+  List services = ["Personal Horoscope (Kundli)","Kundli Matching","Manglik Dosh","Kalsarp Dosh","Saade Saati Period","Gemstones","Graha Shanti","Remedies (Health,Education,Love Marriage Success)","Puja Recommendation", "Mantra Recommendation"];  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,62 +50,28 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Personal HoroScope (Kundli)")));
-            },
-            title: Text("Personal HoroScope (Kundli)",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.red,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Kundli Reading")));
-            },
-            title: Text("Kundli Reading",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.blue,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Manglik Dosh")));
-            },
-            title: Text("Manglik Dosh",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.green,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Kalsarp Dosh")));
-            },
-            title: Text("Kalsarp Dosh",style: TextStyle(color: Colors.black),),
-            tileColor: Colors.yellow,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Sadesati Period")));
-            },
-            title: Text("Sadesati Period",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.blue,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Gemstones")));
-            },
-            title: Text("Gemstones",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.deepOrange,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Sadesati Period")));
-            },
-            title: Text("Sadesati Period",style: TextStyle(color: Colors.black),),
-            tileColor: Colors.lightGreen,
-          ),
-          ListTile(
-            onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Service("Graha Shanti")));
-            },
-            title: Text("Graha Shanti",style: TextStyle(color: Colors.white),),
-            tileColor: Colors.purple,
-          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: GridView.count(
+              physics: ScrollPhysics(),
+              shrinkWrap: true,
+              crossAxisCount: 2,
+              children: List.generate(10, //this is the total number of cards
+                  (index) {
+                return Container(
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => Service(services[index])));
+                    },
+                    child: Card(
+                      color: colors[index],
+                      child: Center(child: Text(services[index],style: TextStyle(color: Colors.white,fontSize: 20.0),textAlign: TextAlign.center,)),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          )
         ],
       ),
     );
