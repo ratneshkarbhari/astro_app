@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import '../templates/AppBarTemplate.dart';
 import '../templates/DrawerTemplate.dart';
 
@@ -13,6 +14,11 @@ class _ServiceState extends State<Service> {
   final name;
   _ServiceState(this.name);
 
+
+  List fields = ["name","gender","bd","bm","by","bh","bmi","bs","bp"];
+  List fieldTitles = ["Name","Gender","Birth Date","Birth Month","Birth Year","Birth Hour","Birth Minute","Birth Second","Birth Place"];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +29,19 @@ class _ServiceState extends State<Service> {
   }
 }
 
-class ServicePage extends StatelessWidget {
+class ServicePage extends StatefulWidget {
   final name;
   ServicePage(this.name);
+
+  @override
+  _ServicePageState createState() => _ServicePageState();
+}
+
+class _ServicePageState extends State<ServicePage> {
+List fields = ["name","gender","bd","bm","by","bh","bmi","bs","bp"];
+
+List fieldTitles = ["Name","Gender","Birth Date","Birth Month","Birth Year","Birth Hour","Birth Minute","Birth Second","Birth Place"];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +49,7 @@ class ServicePage extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: ListView(
         children: [
-          Text(this.name, style: TextStyle(fontSize: 30.0)),
+          Text(this.widget.name, style: TextStyle(fontSize: 30.0)),
           SizedBox(
             height: 20.0,
           ),
@@ -42,41 +58,26 @@ class ServicePage extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          TextField(
-            keyboardType: TextInputType.name,
-            decoration: InputDecoration(
-                labelText: "Full Name",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                )),
-          ),
-          SizedBox(height: 10,),
-          TextField(
-            keyboardType: TextInputType.phone,
-            decoration: InputDecoration(
-                labelText: "Contact Number",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                )),
-          ),
-          SizedBox(height: 10,),
-          TextField(
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-                labelText: "Location",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                )),
-          ),
-          SizedBox(height: 10,),
-          TextField(
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-                labelText: "Your Query",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                )),
-          ),
+          ListView.builder(itemCount: fields.length,itemBuilder: (context,index){
+            return Container(
+              child: ListView(
+                children: [
+                  SizedBox(
+                  height: 20.0,
+                  ),
+                  TextField(
+                    keyboardType: TextInputType.name,
+                    decoration: InputDecoration(
+                        labelText: fieldTitles[index],
+                        border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                      )
+                    ),
+                  )
+                ],
+              ),
+            );
+          },),
           SizedBox(height: 20,),
           MaterialButton(
             height: 50.0,
@@ -90,3 +91,4 @@ class ServicePage extends StatelessWidget {
     ));
   }
 }
+

@@ -21,7 +21,12 @@ class _HomeState extends State<Home> {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<String> carouselImgList = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -65,7 +70,7 @@ class HomePage extends StatelessWidget {
                     },
                     child: Card(
                       color: colors[index],
-                      child: Center(child: Text(services[index],style: TextStyle(color: Colors.white,fontSize: 20.0),textAlign: TextAlign.center,)),
+                      child: Center(child: Padding(padding: const EdgeInsets.all(3.0) ,child: Text(services[index],style: TextStyle(color: Colors.white,fontSize: 20.0),textAlign: TextAlign.center)))
                     ),
                   ),
                 );

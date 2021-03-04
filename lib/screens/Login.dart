@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/Constants.dart';
 import 'Home.dart';
 
@@ -46,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Center(
           child: ListView(
             children: [
-              Image.network("https://dummyimage.com/600x400/000/fff"),
+              Image.asset("assets/images/logo.webp"),
               Text(_loginError),
               TextField(
                 keyboardType: TextInputType.emailAddress,
