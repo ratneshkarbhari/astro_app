@@ -6,6 +6,9 @@ import '../screens/ContactUs.dart';
 import '../screens/AskAnyQuestion.dart';
 import '../screens/OurServices.dart';
 import '../screens/Login.dart';
+import '../screens/OurAstrologers.dart';
+import '../screens/HowItWorks.dart';
+
 
 class DrawerTemplate extends StatelessWidget {
   @override
@@ -28,6 +31,18 @@ class DrawerTemplate extends StatelessWidget {
               Navigator.push(context,MaterialPageRoute(builder: (context)=>Home()));
             },
             title: Text("Home"),
+          ),
+          ListTile(
+            onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>HowItWorks()));
+            },
+            title: Text("How It Works"),
+          ),
+          ListTile(
+            onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=>OurAstrologers()));
+            },
+            title: Text("Our Astrologers"),
           ),
           ListTile(
             onTap: (){

@@ -58,9 +58,13 @@ List fieldTitles = ["Name","Gender","Birth Date","Birth Month","Birth Year","Bir
           SizedBox(
             height: 20.0,
           ),
-          ListView.builder(itemCount: fields.length,itemBuilder: (context,index){
+          ListView.builder(
+            physics: ScrollPhysics(),
+            itemCount: fields.length,
+            shrinkWrap: true,
+            itemBuilder: (context,index){
             return Container(
-              child: ListView(
+              child: Column(
                 children: [
                   SizedBox(
                   height: 20.0,
@@ -82,7 +86,7 @@ List fieldTitles = ["Name","Gender","Birth Date","Birth Month","Birth Year","Bir
           MaterialButton(
             height: 50.0,
             onPressed: (){},
-            color: Colors.blue,
+            color: Colors.indigo,
             child: Text("Send",style: TextStyle(color: Colors.white,fontSize: 16.0)),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           ),

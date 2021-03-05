@@ -4,6 +4,7 @@ import '../templates/DrawerTemplate.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import './Service.dart';
+import '../HexColor.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -38,7 +39,9 @@ class _HomePageState extends State<HomePage> {
 
   List colors = [Colors.red,Colors.green,Colors.blue,Colors.pink,Colors.purple,Colors.deepOrange,Colors.teal,Colors.amber,Colors.cyan,Colors.indigo];
 
-  List services = ["Personal Horoscope (Kundli)","Kundli Matching","Manglik Dosh","Kalsarp Dosh","Saade Saati Period","Gemstones","Graha Shanti","Remedies (Health,Education,Love Marriage Success)","Puja Recommendation", "Mantra Recommendation"];  
+  List services = ["Personal Horoscope (Kundli)","Kundli Matching","Manglik Dosh","Kalsarp Dosh","Saade Saati Period","Gemstones","Graha Shanti","Remedies","Puja Recommendation", "Mantra Recommendation"];  
+
+  Color darkBlue = HexColor("#2039b0");
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +72,8 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(context,MaterialPageRoute(builder: (context) => Service(services[index])));
                     },
                     child: Card(
-                      color: colors[index],
-                      child: Center(child: Padding(padding: const EdgeInsets.all(3.0) ,child: Text(services[index],style: TextStyle(color: Colors.white,fontSize: 20.0),textAlign: TextAlign.center)))
+                      color: darkBlue,
+                      child: Center(child: Padding(padding: const EdgeInsets.all(10.0) ,child: Text(services[index],style: TextStyle(color: Colors.white,fontSize: 17.0),textAlign: TextAlign.center)))
                     ),
                   ),
                 );

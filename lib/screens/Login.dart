@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
               MaterialButton(
                 height: 50.0,
                 onPressed: _loginExe,
-                color: Colors.blue,
+                color: Colors.indigo,
                 child: Text("Login",style: TextStyle(color: Colors.white,fontSize: 16.0)),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
               ),

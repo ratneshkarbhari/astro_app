@@ -10,7 +10,7 @@ Future main() async {
     debugShowCheckedModeBanner: false,
     title: 'Flutter Demo',
     theme: ThemeData(
-      primarySwatch: Colors.blue,
+      primarySwatch: Colors.indigo,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
     home: Home(),
